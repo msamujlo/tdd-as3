@@ -26,12 +26,6 @@ package examples.range
 		}
 		
 		[Test]
-		public function range_class_is_instantiated():void {
-			var single_point_range:Range = new Range(0,0);
-			assertNotNull(single_point_range);
-		}
-		
-		[Test]
 		public function single_point_range_contains_start_point():void {
 			var start_point:int = 0;
 			var single_point_range:Range = new Range(start_point,start_point);
