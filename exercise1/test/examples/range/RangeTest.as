@@ -31,5 +31,12 @@ package examples.range
 			assertNotNull(single_point_range);
 		}
 		
+		[Test]
+		public function single_point_range_contains_start_point():void {
+			var start_point:int = 0;
+			var single_point_range:Range = new Range(start_point,start_point);
+			assertTrue( single_point_range.contains(start_point) );
+		}
+		
 	}
 }
