@@ -1,12 +1,16 @@
-package examples.range
-{
-	public class Range
-	{
-		public function Range(from:uint,to:uint) {
+package examples.range {
+
+	public class Range {
+		private var to:int;
+		private var from:int;
+
+		public function Range(from:uint, to:uint) {
+			this.from=from;
+			this.to=to;
 		}
-		
+
 		public function contains(value:int):Boolean {
-			return true;
+			return value >= from && value <= to;
 		}
 	}
 }
