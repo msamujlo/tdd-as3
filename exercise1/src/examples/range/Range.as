@@ -12,5 +12,9 @@ package examples.range {
 		public function contains(value:int):Boolean {
 			return value >= from && value <= to;
 		}
+		
+		public function intersection(range2:Range):Object {
+			return new Range( Math.max(this.from,range2.from), Math.min(this.to,range2.to));
+		}
 	}
 }
