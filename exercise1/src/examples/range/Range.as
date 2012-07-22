@@ -5,9 +5,9 @@ package examples.range {
 		private var _start:int;
 		private var _end:int;
 
-		public function Range(start:uint, end:uint) {
-			this._start = end;
-			this._end   = start;
+		public function Range(startValue:int, endValue:int) {
+			this._start = startValue;
+			this._end   = endValue;
 		}
 
 		public function get end():int {
@@ -19,11 +19,11 @@ package examples.range {
 		}
 
 		public function contains(value:int):Boolean {
-			return value >= _end && value <= _start;
+			return value >= _start && value <= _end;
 		}
 
 		public function intersection(range2:Range):Range {
-			return new Range(Math.max(this._end, range2._end), Math.min(this._start, range2._start));
+			return new Range(Math.max(this._start, range2._start), Math.min(this._end, range2._end));
 		}
 	}
 }

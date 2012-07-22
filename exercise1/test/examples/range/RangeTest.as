@@ -68,6 +68,15 @@ package examples.range {
 			assertEquals( range2.end, intersection.end );
 			
 		}
+		
+		[Test]
+		public function correctly_handles_maximum_values():void {
+			var range:Range = new Range(uint.MIN_VALUE,uint.MAX_VALUE);
+			assertEquals(range.start,uint.MIN_VALUE);
+			assertEquals(range.end, uint.MAX_VALUE);
+			assertTrue(range.contains(uint.MIN_VALUE+1));
+			assertTrue(range.contains(uint.MAX_VALUE-1));
+		}
 
 	}
 }
