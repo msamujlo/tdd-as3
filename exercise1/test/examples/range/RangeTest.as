@@ -48,20 +48,25 @@ package examples.range {
 		}
 		
 		[Ignore]
-		[Test]
+		[Test( description = "i dont need it right now" )]
 		public function arguments_order_is_not_important():void {
 			var range1:Range = new Range(0,10);
 			var range2:Range = new Range(10,0);
-			// FIXME
-			assertEquals( range1, range2 );
+			
+			assertEquals( range1.start, range2.start );
+			assertEquals( range1.end, range2.end );
 		}
 		
 		[Test]
 		public function correctly_calculates_intersection_with_included_range():void {
 			var range1:Range = new Range(0,10);
 			var range2:Range = new Range(2,4);
-			// FIXME
-			assertEquals( range2, range1.intersection(range2) );
+			
+			var intersection:Range = range1.intersection(range2);
+			
+			assertEquals( range2.start, intersection.start );
+			assertEquals( range2.end, intersection.end );
+			
 		}
 
 	}

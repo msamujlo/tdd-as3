@@ -1,20 +1,29 @@
 package examples.range {
 
 	public class Range {
-		private var to:int;
-		private var from:int;
 
-		public function Range(from:uint, to:uint) {
-			this.from=from;
-			this.to=to;
+		private var _start:int;
+		private var _end:int;
+
+		public function Range(start:uint, end:uint) {
+			this._start = end;
+			this._end   = start;
+		}
+
+		public function get end():int {
+			return _end;
+		}
+
+		public function get start():int {
+			return _start;
 		}
 
 		public function contains(value:int):Boolean {
-			return value >= from && value <= to;
+			return value >= _end && value <= _start;
 		}
-		
-		public function intersection(range2:Range):Object {
-			return new Range( Math.max(this.from,range2.from), Math.min(this.to,range2.to));
+
+		public function intersection(range2:Range):Range {
+			return new Range(Math.max(this._end, range2._end), Math.min(this._start, range2._start));
 		}
 	}
 }
