@@ -1,8 +1,10 @@
 package examples.range {
+	import org.flexunit.Assert;
 	import org.flexunit.asserts.assertEquals;
 	import org.flexunit.asserts.assertFalse;
 	import org.flexunit.asserts.assertNotNull;
 	import org.flexunit.asserts.assertTrue;
+	import org.flexunit.asserts.fail;
 
 	public class RangeTest {
 
@@ -66,7 +68,28 @@ package examples.range {
 			
 			assertEquals( range2.start, intersection.start );
 			assertEquals( range2.end, intersection.end );
+		}
+		
+		[Test]
+		public function correctly_calculates_intersection_with_identical_range():void {
+			var range1:Range = new Range(0,10);
+			var range2:Range = new Range(0,10);
+			var intersection:Range = range1.intersection(range2);
 			
+			assertEquals( 0, intersection.start );
+			assertEquals( 10, intersection.end );
+		}
+		
+		[Ignore]
+		[Test]
+		public function correctly_calculates_intersection_with_overlapping_range():void {
+			fail("not implemented");
+		}
+		
+		[Ignore]
+		[Test]
+		public function correctly_calculates_intersection_of_non_overlapping_ranges():void {
+			fail("not implemented");
 		}
 		
 		[Test]
