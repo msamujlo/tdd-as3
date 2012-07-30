@@ -6,3 +6,9 @@ bin-release/
 .metadata
 .settings/
 .project
+/exercise4/.FlexUnitSettings
+.FlexUnitSettings
+FlexUnitApplication-app.xml
+FlexUnitApplication.mxml
+FlexUnitCompilerApplication.mxml
+FlexUnitCompilerApplication-app.xml
