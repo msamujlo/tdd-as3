@@ -2,6 +2,7 @@ package examples.actionsQueue {
 
 	import org.flexunit.Assert;
 	import org.flexunit.assertThat;
+	import org.flexunit.asserts.assertEquals;
 	import org.flexunit.asserts.assertTrue;
 	import org.flexunit.asserts.fail;
 	import org.hamcrest.collection.array;
@@ -41,7 +42,7 @@ package examples.actionsQueue {
 			queue.add(new DummyAction());
 
 			// assert
-			assertThat(queue.actionsLeft, equalTo(3));
+			assertEquals(3, queue.actionsLeft);
 		}
 
 		[Test(description='delta assertion example')]
