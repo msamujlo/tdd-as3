@@ -26,7 +26,8 @@ package examples.actionsQueue {
 		}
 
 		[Test('state verification example')]
-		public function can_add_actions_to_queue():void {
+		// can_add_actions_to_queue
+		public function add_actions_shouldAddAllActions():void {
 			// arrange 
 			var queue:ActionsQueue=new ActionsQueue();
 
@@ -40,7 +41,8 @@ package examples.actionsQueue {
 		}
 
 		[Test(description='delta assertion example')]
-		public function executes_added_action_when_started():void {
+		// executes_added_action_when_started
+		public function start_withOneAction_executesAction():void {
 			// arrange
 			var queue:ActionsQueue=new ActionsQueue();
 			var action:DummyAction=new DummyAction();
@@ -55,13 +57,15 @@ package examples.actionsQueue {
 
 		[Ignore]
 		[Test(description='exception handling and ignoring test', expects="examples.actionsQueue.QueueError")]
-		public function cant_add_actions_after_start():void {
+		// cant_add_actions_after_start
+		public function add_afterStart_throwsError():void {
 			throw new QueueError();
 		}
 
 		[Ignore]
 		[Test(description='handling asynchronous events', async)]
-		public function dispatches_complete_event_when_all_actions_were_executed():void {
+		// dispatches_complete_event_when_all_actions_were_executed
+		public function start_afterExecutingAllActions_shouldDispatchCompleteEvent():void {
 			fail("not implemented");
 		}
 
