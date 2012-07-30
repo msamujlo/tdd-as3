@@ -9,12 +9,16 @@ package examples.actionsQueue {
 
 	public class ActionsQueueTest {
 
+		private var queue:ActionsQueue;
+
 		[Before]
 		public function setUp():void {
+			queue = new ActionsQueue();
 		}
 
 		[After]
 		public function tearDown():void {
+			queue = null;
 		}
 
 		[BeforeClass]
@@ -28,8 +32,8 @@ package examples.actionsQueue {
 		[Test('state verification example')]
 		// can_add_actions_to_queue
 		public function add_actions_shouldAddAllActions():void {
-			// arrange 
-			var queue:ActionsQueue=new ActionsQueue();
+			// arrange
+			// moved to setUp
 
 			// act
 			queue.add(new DummyAction());
@@ -44,7 +48,6 @@ package examples.actionsQueue {
 		// executes_added_action_when_started
 		public function start_withOneAction_executesAction():void {
 			// arrange
-			var queue:ActionsQueue=new ActionsQueue();
 			var action:DummyAction=new DummyAction();
 			queue.add(action);
 
@@ -75,9 +78,11 @@ import examples.actionsQueue.Action;
 
 class DummyAction implements Action {
 	private var _executed:Boolean;
+
 	public function get executed():Boolean {
 		return _executed;
 	}
+
 	public function execute():void {
 		_executed=true;
 	}
